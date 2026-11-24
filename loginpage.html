@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <form onsubmit="login(event)">
+        Email:
+        <input type="email" id="usermail" placeholder="Enter email" >
+        <br><br>
+        Password:
+        <input type="password" id="userpass" placeholder="Enter password" >
+        <br><br>
+        <button type="submit">Submit</button>
+        <h2 id="result"></h2>
+    </form>
+    <script>
+        function login(event) {
+            event.preventDefault();
+            let e = document.getElementById("usermail").value;
+            let p = document.getElementById("userpass").value;
+            let ue = localStorage.getItem("Email");
+            let up = localStorage.getItem("password");
+            if (ue == e && up == p) {
+                document.getElementById("result").innerHTML = "Login Successful";
+            }
+            else {
+                document.getElementById("result").innerHTML = "Invalid email or password";
+            }
+        }
+    </script>
+</body>
+</html>
